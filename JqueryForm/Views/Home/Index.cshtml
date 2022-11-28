@@ -1,0 +1,62 @@
+﻿@model IEnumerable<JqueryForm.Models.Emp>
+
+@{
+    ViewBag.Title = "Employee";
+}
+<div class="row">
+    <div class="col-md-10">
+
+        <table class="table table-striped" id="Emptab">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">EmpID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Date Of Birth</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Language</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="AddNewRow">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">
+                            <input type="checkbox" class="form-check-input EmpId" value="@item.EmpID"/>
+                        </th>
+                        <th scope="row">@Html.DisplayFor(modelItem => item.EmpID)</th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOB)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Language)
+                        </td>
+                        <th scope="col">
+                            <button onclick="EditRecord(@item.EmpID)" class="btn btn-default btn-xs">Edit</button>
+                            <button onclick="DeleteRecord(@item.EmpID)" class="btn btn-default btn-xs">Delete</button> @*onclick = "DeleteRecord(@item.EmpID)"*@
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <button id="AddRecord" class="btn btn-default btn-sm">Add New Record</button>
+        <button onclick="btnSaveAll()" class="btn btn-default btn-sm">Save All</button>
+        <button onclick="DeleteAll()" class="btn btn-default btn-sm">Delete All</button>
+    </div>
+</div>
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>*@

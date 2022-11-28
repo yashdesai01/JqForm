@@ -1,0 +1,32 @@
+﻿@model JqueryForm.Models.Emp
+<tr class="new">
+    <th scope="row"></th>
+    <th scope="row"></th>
+    <td>
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control input-sm name", @placeholder = "Full name" } })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Salary, new { htmlAttributes = new { @class = "form-control input-sm salary", @placeholder = "Enter Salary" } })
+        @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control input-sm dob", @placeholder = "Enter Date of birth" } })
+        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control input-sm age", @placeholder = "Enter Age" } })
+        @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+    </td>
+    <td>
+        @Html.DropDownListFor(model => model.Language, new List<SelectListItem>
+        {
+            new SelectListItem{ Text="C#", Value = "C#" },
+            new SelectListItem{ Text="Python", Value = "Python" },
+            new SelectListItem{ Text="JavaScript", Value = "JavaScript" },
+            new SelectListItem{ Text="JQuery", Value = "JQuery" },
+         }, new { @class = "form-control input-sm language" })
+        @Html.ValidationMessageFor(model => model.Language, "", new { @class = "text-danger" })
+    </td>
+    <th scope="col"><input onclick="btnSubmit(this)" type="button" value="Save" class="btn btn-default btn-xs" /></th> 
+</tr>
